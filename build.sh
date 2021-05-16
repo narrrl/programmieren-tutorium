@@ -16,4 +16,4 @@ done
 # Clean everything else
 cd Build_Output
 # clean files
-find . -maxdepth 1 ! -name '*.out' -name '*.tex' -type f -exec rm -f {} +
+find . -maxdepth 1 ! -name '*.out' -o ! -name '*.tex' -type f -exec rm -f {} +
