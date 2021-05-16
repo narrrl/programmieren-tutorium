@@ -143,17 +143,17 @@
 \section{Übungsblatt 2}
 \subsection{Aufgabe A: String-Utility}
 \begin{frame}{Aufgabe A}
-  \begin{block}{Aufgabe und Lernziele}
+  \begin{block}{Aufgabe}
+    \pause
+    Utility-Klasse für Strings schreiben
+  \end{block}
+  \pause
+  \begin{block}{Lernziele}
     \begin{itemize}
       \pause
-      \item Utility-Klasse für Strings schreiben
+      \item Umgang mit Strings
       \pause
-      \item Lernziele \begin{itemize}
-          \pause
-          \item Umgang mit Strings
-          \pause
-          \item Aufbau von Utility-Klassen
-        \end{itemize}
+      \item Aufbau von Utility-Klassen
     \end{itemize}
   \end{block}
 \end{frame}
@@ -271,8 +271,68 @@ public static @@cString@@ reverse(@@cString@@ word) {
 
 \subsection{Aufgabe B - Integer-Utility}
 
-\begin{frame}[fragile]{Aufgabe B}
-  Test?
+\begin{frame}{Aufgabe B}
+  \begin{block}{Aufgabe}
+    \pause
+    Utility-Klasse für Integer-Arrays
+  \end{block}
+
+  \pause
+  \begin{block}{Lernziele}
+    \begin{itemize}
+      \item Aufbau von Utility-Klassen
+      \pause
+      \item Umgang mit Arrays
+      \pause
+      \item Umgang mit Schleifen \begin{itemize}
+        \pause
+        \item Wenn Index \color{alertcolor}nicht \color{FGround}benötigt wird: \color{keywordcolor}for-each\color{FGround}
+        \pause
+        \item Wenn Index benötigt wird: \color{keywordcolor}for\color{FGround}
+        \pause
+        \item Wenn wir eine Bedingung haben: \color{keywordcolor}while\color{FGround}
+      \end{itemize}
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Wann welcher Schleifentyp?}
+  \begin{exampleblock}{For-each}
+    \begin{lstlisting}
+public static void printoutArray(int[] arr) {
+    for (final int num : arr) {
+      @@cSystem@@.out.println(@@cString@@.valueOf(num));
+    }
+}
+    \end{lstlisting}
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]{Wann welcher Schleifentyp?}
+  \begin{exampleblock}{For}
+    \begin{lstlisting}
+public static int indexOf(int[] arr, final int element) {
+    for (int i = 0; i < arr.length; i++) {
+      if ( arr[i] == element ) return i;
+    }
+    return -1;
+}
+    \end{lstlisting}
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]{Wann welcher Schleifentyp?}
+  \begin{exampleblock}{While}
+    \begin{lstlisting}
+...
+// integerList ist von Typ List<Integer>
+@@cIterator@@<@@cInteger@@> iter = integerList.iterator();
+while (iter.hasNext()) {
+    @@cSystem@@.out.println(iter.next());
+}
+...
+    \end{lstlisting}
+  \end{exampleblock}
 \end{frame}
 
 \section{Fragen und Vorrechnen}
