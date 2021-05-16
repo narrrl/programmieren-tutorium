@@ -1,0 +1,35 @@
+# TeX
+
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.nav
+*.out
+*.snm
+*.synctex.gz
+*.synctex(busy)
+*.toc
+
+Tut*.pdf
+*.vrb
+*.pdfpc
+
+# Java
+
+*.class
+
+# Windows
+
+Thumbs.db
+
+# IDE
+
+.vscode/
+
+.project
+.classpath
+.settings
+bin/
+
+/Build_Output
