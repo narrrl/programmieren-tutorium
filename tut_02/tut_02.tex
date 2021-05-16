@@ -20,7 +20,8 @@
 \hypersetup{
   colorlinks=true,
   linkcolor= {linkcolor},
-  urlcolor= {linkcolor}
+  urlcolor= {linkcolor},
+  bookmarks={true}
 }
 
 \definecolor{stringcolor}{RGB}{139,233,253}
@@ -31,7 +32,8 @@
 \definecolor{BGround}{RGB}{40,42,54}
 \definecolor{classcolor}{HTML}{EE0E61}
 \definecolor{numbercolor}{HTML}{6897bb}
-\definecolor{darkgray}{HTML}{141617}
+\definecolor{darkgray}{HTML}{2b2b2b}
+\definecolor{nicegreen}{HTML}{50fa7b}
 
 \usepackage{listings}
 \lstset{
@@ -100,17 +102,42 @@
 \end{block}
 \end{frame}
 
-\begin{frame}[fragile]{Termine}
-  \begin{alertblock}{Termin}
-    TODO: Termine aufzählen
-  \end{alertblock}
+\begin{frame}[fragile]{Vorstellung}
+ \begin{columns}[T,onlytextwidth]
+    \column{0.5\textwidth}
+      \begin{block}{Regeln/Empfehlungen für MS Teams}
+        \begin{itemize}
+          \item Ton aus/Webcam an (falls, vorhanden, Alternative: droidcam)
+          \item De-Anonymisierung aktiviert
+          \item Fragen stellen \begin{itemize}
+            \item einfach los fragen (einfach zwischen rein)
+            \item oder Hand heben
+            \item Duzen ist erwünscht
+          \end{itemize}
+        \end{itemize}
+      \end{block}
+    \column{0.05\textwidth}
+    \column{0.5\textwidth}
+      \includegraphics[scale=0.4]{../images/questions-meme.jpg}
+  \end{columns}
+
 \end{frame}
 
-\begin{frame}[fragile]{Übungsblatt 2}
-  \begin{block}{Korrektur}
-    TODO: Hinweise zur Korrektur
+\section{Organisatorisches}
+\begin{frame}[fragile]{Organisatorisches}
+  \begin{alertblock}{Organisatorisches}
+    \begin{itemize}
+      \item Zum Vorrechen im Ilias anmelden
+      \item Übungsblatt 3 \begin{itemize}
+        \item \color{nicegreen}Ausgabe: \color{FGround} 17. Mai, 13 Uhr
+        \item \color{numbercolor} Artemis: \color{FGround} 21. Mai, 13 Uhr
+        \item \color{alertcolor}Deadline: \color{FGround} 01. Juni, 06 Uhr
+      \end{itemize}
+    \end{itemize}
+  \end{alertblock}
+  \begin{block}{Vorrechnen}
+    Ihr werdet ziemlich sicher bestehen, wenn eure Abgabe selbstständig erstellt wurde und das Vorrechnen ist deutlich angenehmer als die Präsenzübung
   \end{block}
-
 \end{frame}
 
 \section{Übungsblatt 2}
@@ -227,7 +254,7 @@ public static @@cString@@ reverse(@@cString@@ word) {
 \end{frame}
 
 \begin{frame}[fragile]{Aufgabe A}
-  \begin{block}{reverse - StringBuilder}
+  \begin{exampleblock}{reverse - StringBuilder}
     \begin{lstlisting}
 public static @@cString@@ reverse(@@cString@@ word) {
     @@cStringBuilder@@ reverse = new @@cStringBuilder@@;
@@ -239,7 +266,7 @@ public static @@cString@@ reverse(@@cString@@ word) {
     return reverse.toString();
 }
     \end{lstlisting}
-  \end{block}
+  \end{exampleblock}
 \end{frame}
 
 \subsection{Aufgabe B - Integer-Utility}
