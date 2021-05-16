@@ -19,7 +19,7 @@
 
 \hypersetup{
   colorlinks=true,
-  linkcolor= {linkcolor}, 
+  linkcolor= {linkcolor},
   urlcolor= {linkcolor}
 }
 
@@ -49,7 +49,7 @@
   numbers=left,
   numbersep=5pt,
   numberstyle=\color{numbercolor},
-  captionpos=b, 
+  captionpos=b,
   extendedchars=true,
   tabsize=2,
   escapeinside={\%*}{*)},
@@ -61,6 +61,7 @@
 \pgfplotsset{compat=1.17}
 
 \usepackage{xspace}
+\usepackage{multicol}
 
 \title{Tutorium Woche 3 - Termin 1}
 \subtitle{Übungsblatt 2}
@@ -80,7 +81,7 @@
 
 \begin{frame}{Übersicht}
   \setbeamertemplate{section in toc}[sections numbered]
-  \tableofcontents
+  \tableofcontents[hideallsubsections]
 \end{frame}
 
 \section{Vorstellung}
@@ -111,13 +112,29 @@
 
 \section{Übungsblatt 2}
 \subsection{Aufgabe A: String-Utility}
+\begin{frame}{Aufgabe A}
+  \begin{block}{Aufgabe und Lernziele}
+    \begin{itemize}
+      \pause
+      \item Utility-Klasse für Strings schreiben
+      \pause
+      \item Lernziele \begin{itemize}
+          \pause
+          \item Umgang mit Strings
+          \pause
+          \item Aufbau von Utility-Klassen
+        \end{itemize}
+    \end{itemize}
+  \end{block}
+\end{frame}
+
 \begin{frame}[fragile]{Aufgabe A}
   \begin{alertblock}{Privater Konstruktur und final}
     \begin{lstlisting}
 public final class @@cStringUtility@@ {
 
     private @@cStringUtility@@() {
-        throw new 
+        throw new
             @@cIllegalStateException@@(ERROR_UTILITY_CLASS_INSTANTIATION);
     }
     \end{lstlisting}
@@ -191,7 +208,7 @@ public static @@cString@@ removeCharacter(@@cString@@ word, int index) {
 public static @@cString@@ reverse(@@cString@@ word) {
     @@cString@@ reverse = "";
 
-    // We need access to the indices of the characters, 
+    // We need access to the indices of the characters,
     // so we have to use for
     // instead of foreach
     for (int i = word.length() - 1; i >= 0; i--) {
@@ -202,109 +219,40 @@ public static @@cString@@ reverse(@@cString@@ word) {
 }
     \end{lstlisting}
   \end{block}
+  \pause
+  Alternative zu \color{classcolor}String \color{FGround} im Loop? \pause \color{classcolor}Stringbuilder\color{FGround}!
 \end{frame}
 
-\begin{frame}{Blocks}
-  Three different block environments are pre-defined and may be styled with an
-  optional background color.
+\begin{frame}[fragile]{Aufgabe A}
+  \begin{block}{reverse - StringBuilder}
+    \begin{lstlisting}
+public static @@cString@@ reverse(@@cString@@ word) {
+    @@cStringBuilder@@ reverse = new @@cStringBuilder@@;
 
-  \begin{columns}[T,onlytextwidth]
-    \column{0.5\textwidth}
-      \begin{block}{Default}
-        Block content.
-      \end{block}
+    for (int i = word.length() - 1; i >= 0; i--) {
+        reverse.append(word.charAt(i));
+    }
 
-      \begin{alertblock}{Alert}
-        Block content.
-      \end{alertblock}
-
-      \begin{exampleblock}{Example}
-        Block content.
-      \end{exampleblock}
-
-    \column{0.5\textwidth}
-
-
-      \begin{block}{Default}
-        Block content.
-      \end{block}
-
-      \begin{alertblock}{Alert}
-        Block content.
-      \end{alertblock}
-
-      \begin{exampleblock}{Example}
-        Block content.
-      \end{exampleblock}
-
-  \end{columns}
+    return reverse.toString();
+}
+    \end{lstlisting}
+  \end{block}
 \end{frame}
-\begin{frame}{Math}
-  \begin{equation*}
-    e = \lim_{n\to \infty} \left(1 + \frac{1}{n}\right)^n
-  \end{equation*}
-\end{frame}
-\begin{frame}{Line plots}
-  \begin{figure}
-    \begin{tikzpicture}
-      \begin{axis}[
-        mlineplot,
-        width=0.9\textwidth,
-        height=6cm,
-      ]
 
-        \addplot {sin(deg(x))};
-        \addplot+[samples=100] {sin(deg(2*x))};
+\subsection{Aufgabe B - Integer-Utility}
 
-      \end{axis}
-    \end{tikzpicture}
-  \end{figure}
-\end{frame}
-\begin{frame}{Bar charts}
-  \begin{figure}
-    \begin{tikzpicture}
-      \begin{axis}[
-        mbarplot,
-        xlabel={Foo},
-        ylabel={Bar},
-        width=0.9\textwidth,
-        height=6cm,
-      ]
-
-      \addplot plot coordinates {(1, 20) (2, 25) (3, 22.4) (4, 12.4)};
-      \addplot plot coordinates {(1, 18) (2, 24) (3, 23.5) (4, 13.2)};
-      \addplot plot coordinates {(1, 10) (2, 19) (3, 25) (4, 15.2)};
-
-      \legend{lorem, ipsum, dolor}
-
-      \end{axis}
-    \end{tikzpicture}
-  \end{figure}
-\end{frame}
-\begin{frame}{Quotes}
-  \begin{quote}
-    Veni, Vidi, Vici
-  \end{quote}
+\begin{frame}[fragile]{Aufgabe B}
+  Test?
 \end{frame}
 
 \section{Fragen und Vorrechnen}
 
-\begin{frame}{Summary}
-
-  Get the source of this theme and the demo presentation from
-
-  \begin{center}\url{github.com/matze/mtheme}\end{center}
-
-  The theme \emph{itself} is licensed under a
-  \href{http://creativecommons.org/licenses/by-sa/4.0/}{Creative Commons
-  Attribution-ShareAlike 4.0 International License}.
-
-  \begin{center}\ccbysa\end{center}
-
+\begin{frame}
+  \begin{center}\LARGE Fragen?\end{center}
 \end{frame}
 
-\begin{frame}[standout]
-  Questions?
+\begin{frame}
+  \begin{center}\LARGE Vorrechnen!\end{center}
 \end{frame}
 
 \end{document}

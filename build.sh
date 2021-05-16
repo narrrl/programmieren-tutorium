@@ -1,5 +1,7 @@
 #!/bin/bash
 
+mkdir Build_Output
+
 for folder in tut_*; do
     cd "$folder"
     for texFile in *.tex; do
