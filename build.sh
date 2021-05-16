@@ -7,6 +7,8 @@ for folder in tut_*; do
     for texFile in *.tex; do
         echo $texFile
         xelatex -output-directory="../Build_Output" "$texFile"
+        # clean files
+        find . ! -name '*.tex' -type f -exec rm -f {} +
     done
 
     cd ..

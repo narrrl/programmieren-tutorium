@@ -375,10 +375,12 @@ private static int[] truncate(int[] values, int length) {
   \begin{block}{isOdd - Hilfsmethode}
     \begin{lstlisting}
 private static boolean isOdd(int value) {
-    return Math.abs(value % 2) == 1;
+    return @@cMath@@.abs(value % 2) == 1;
 }
     \end{lstlisting}
   \end{block}
+
+  \pause
 
   \begin{block}{contains - Hilfsmethode}
     \begin{lstlisting}
@@ -447,8 +449,7 @@ public static int search(int[] values, int key) {
   \end{block}
 \end{frame}
 
-\begin{frame}[fragile]
-  \vspace{0.5cm}
+\begin{frame}[fragile]{Aufgabe B}
   \begin{block}{sort}
     \begin{lstlisting}
 public static int[] sort(int[] values) {
@@ -457,13 +458,8 @@ public static int[] sort(int[] values) {
     @@cSystem@@.arraycopy(values, 0, sortedValues, 0, values.length);
     // Sort copied array with bubblesort
     for (int i = sortedValues.length; i > 1; i--) {
-        for (int j = 0; j < i - 1; j++) {
-            if (sortedValues[j] > sortedValues[j + 1]) {
-                int oldHighIndexValue = sortedValues[j + 1];
-                sortedValues[j + 1] = sortedValues[j];
-                sortedValues[j] = oldHighIndexValue;
-            }
-        }
+        ...
+        ...
     }
     return sortedValues;
 }
@@ -471,15 +467,29 @@ public static int[] sort(int[] values) {
   \end{block}
 \end{frame}
 
-\begin{frame}[fragile]
-  \vspace{0.5cm}
+\begin{frame}[fragile]{Aufgabe B}
+  \begin{block}{sort}
+    \begin{lstlisting}
+...
+for (int j = 0; j < i - 1; j++) {
+    if (sortedValues[j] > sortedValues[j + 1]) {
+        int oldHighIndexValue = sortedValues[j + 1];
+        sortedValues[j + 1] = sortedValues[j];
+        sortedValues[j] = oldHighIndexValue;
+    }
+}
+...
+    \end{lstlisting}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Aufgabe B}
   \begin{block}{median}
     \begin{lstlisting}
 public static double median(int[] values) {
     // Sort array and calculate its (high) middle index.
     int[] sortedArray = sort(values);
     int flooredHalfLength = sortedArray.length / 2;
-
     // Calculate median
     double median;
     if (isOdd(sortedArray.length)) {
@@ -529,6 +539,26 @@ tmpCommonValues[tmpCommonValues.length - 1] = value;
 commonValues = tmpCommonValues;
 ...
     \end{lstlisting}
+  \end{block}
+\end{frame}
+
+\subsection{Aufgabe C - Kalender}
+
+\begin{frame}{Aufgabe C}
+  \begin{block}{Aufgabe}
+    \pause
+    Einen Kalender in OOP modellieren
+  \end{block}
+
+  \pause
+  \begin{block}{Lernziele}
+    \begin{itemize}
+      \item OO-Programmierung
+      \pause
+      \item Passende Typenwahl für Attribute
+      \pause
+      \item Grundlegender Aufbau einer Klasse
+    \end{itemize}
   \end{block}
 \end{frame}
 \section{Fragen und Vorrechnen}
