@@ -159,7 +159,7 @@
 \end{frame}
 
 \begin{frame}[fragile]{Aufgabe A}
-  \begin{alertblock}{Privater Konstruktur und final}
+  \begin{alertblock}{Privater Konstruktur und \color{keywordcolor}final}
     \begin{lstlisting}
 public final class @@cStringUtility@@ {
 
@@ -250,7 +250,7 @@ public static @@cString@@ reverse(@@cString@@ word) {
     \end{lstlisting}
   \end{block}
   \pause
-  Alternative zu \color{classcolor}String \color{FGround} im Loop? \pause \color{classcolor}Stringbuilder\color{FGround}!
+  Alternative zu \color{classcolor}String \color{FGround} im Loop? \pause \color{classcolor}StringBuilder\color{FGround}!
 \end{frame}
 
 \begin{frame}[fragile]{Aufgabe A}
@@ -335,6 +335,202 @@ while (iter.hasNext()) {
   \end{exampleblock}
 \end{frame}
 
+\begin{frame}[fragile]{Aufgabe B}
+  \begin{block}{Privater Konstruktor und \color{keywordcolor}final}
+    \begin{lstlisting}
+public final class @@cIntegerUtility@@ {
+    /**
+     * Creates a new instance of {@link IntegerUtility}.
+     *
+     * @throws IllegalStateException if constructor is called
+     * because {@link IntegerUtility} is a utility class.
+     */
+    private @@cIntegerUtility@@() {
+        throw new
+            @@cIllegalStateException@@(ERROR_UTILITY_CLASS_INSTANTIATION);
+    }
+    \end{lstlisting}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Aufgabe B}
+  \begin{block}{truncate - Hilfsmethode}
+    \begin{lstlisting}
+private static int[] truncate(int[] values, int length) {
+    // Check whether array is long enough for requested truncation.
+    if (length > values.length) {
+        throw new
+            @@cIllegalArgumentException@@(ERROR_INSUFFICIENT_ARRAY_LENGTH);
+    }
+    // Truncate array to number of written values and return it.
+    int[] truncatedValues = new int[length];
+    @@cSystem@@.arraycopy(values, 0, truncatedValues, 0, length);
+    return truncatedValues;
+}
+    \end{lstlisting}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Aufgabe B}
+  \begin{block}{isOdd - Hilfsmethode}
+    \begin{lstlisting}
+private static boolean isOdd(int value) {
+    return Math.abs(value % 2) == 1;
+}
+    \end{lstlisting}
+  \end{block}
+
+  \begin{block}{contains - Hilfsmethode}
+    \begin{lstlisting}
+private static boolean contains(int[] values, int value) {
+    return search(values, value) != RETURN_VALUE_NOT_FOUND;
+}
+    \end{lstlisting}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Aufgabe B}
+  \begin{block}{greaterThan}
+    \begin{lstlisting}
+public static int[] greaterThan(int[] values, int threshold) {
+    // Initialize and fill new array with values greater than threshold
+    int[] greaterValues = new int[values.length];
+    int indexOfLastValueAdded = -1;
+    for (int value : values) {
+        // If a greater value is found, write it to next position in array
+        if (value > threshold) {
+            greaterValues[++indexOfLastValueAdded] = value;
+        }
+    }
+    // Truncate result to number of added elements and return it
+    return truncate(greaterValues, indexOfLastValueAdded + 1);
+}
+    \end{lstlisting}
+  \end{block}
+\end{frame}
+
+
+\begin{frame}[fragile]{Aufgabe B}
+  \begin{block}{getOdds}
+    \begin{lstlisting}
+public static int[] getOdds(int[] values) {
+    // Initialize and fill new array with odd values
+    int[] oddValues = new int[values.length];
+    int indexOfLastValueAdded = -1;
+    for (int value : values) {
+        // If an odd value is found, write it to next position in array
+        if (isOdd(value)) {
+            oddValues[++indexOfLastValueAdded] = value;
+        }
+    }
+    // Truncate result to number of added elements and return it
+    return truncate(oddValues, indexOfLastValueAdded + 1);
+}
+    \end{lstlisting}
+  \end{block}
+\end{frame}
+
+
+
+\begin{frame}[fragile]{Aufgabe B}
+  \begin{block}{search}
+    \begin{lstlisting}
+public static int search(int[] values, int key) {
+    for (int i = 0; i < values.length; i++) {
+        if (values[i] == key) {
+            return i;
+        }
+    }
+    return RETURN_VALUE_NOT_FOUND;
+}
+    \end{lstlisting}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+  \vspace{0.5cm}
+  \begin{block}{sort}
+    \begin{lstlisting}
+public static int[] sort(int[] values) {
+    // Copy values to new array
+    int[] sortedValues = new int[values.length];
+    @@cSystem@@.arraycopy(values, 0, sortedValues, 0, values.length);
+    // Sort copied array with bubblesort
+    for (int i = sortedValues.length; i > 1; i--) {
+        for (int j = 0; j < i - 1; j++) {
+            if (sortedValues[j] > sortedValues[j + 1]) {
+                int oldHighIndexValue = sortedValues[j + 1];
+                sortedValues[j + 1] = sortedValues[j];
+                sortedValues[j] = oldHighIndexValue;
+            }
+        }
+    }
+    return sortedValues;
+}
+    \end{lstlisting}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+  \vspace{0.5cm}
+  \begin{block}{median}
+    \begin{lstlisting}
+public static double median(int[] values) {
+    // Sort array and calculate its (high) middle index.
+    int[] sortedArray = sort(values);
+    int flooredHalfLength = sortedArray.length / 2;
+
+    // Calculate median
+    double median;
+    if (isOdd(sortedArray.length)) {
+        median = sortedArray[flooredHalfLength];
+    } else {
+        int topHalfValue = sortedArray[flooredHalfLength];
+        int bottomHalfValue = sortedArray[flooredHalfLength - 1];
+        median = ((double) topHalfValue + (double) bottomHalfValue) / 2d;
+    }
+    return median;
+}
+    \end{lstlisting}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Aufgabe B}
+  \begin{block}{common}
+    \begin{lstlisting}
+public static int[] common(int[] a, int[] b) {
+    int[] commonValues = new int[0];
+    for (int value : a) {
+        // Check whether value can be found in the other array but was
+        // not added to common values yet
+        if (contains(b, value) && !contains(commonValues, value)) {
+            ...
+            ...
+        }
+    }
+    return commonValues;
+}
+    \end{lstlisting}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Aufgabe B}
+  \begin{block}{common}
+    \begin{lstlisting}
+...
+// Create a temporary lengthened array based on the already
+// identified common values
+int[] tmpCommonValues = new int[commonValues.length + 1];
+@@cSystem@@.arraycopy(commonValues, 0, tmpCommonValues, 0,
+    commonValues.length);
+// Add new common value to temporary array and write temporary
+// array back to actual array
+tmpCommonValues[tmpCommonValues.length - 1] = value;
+commonValues = tmpCommonValues;
+...
+    \end{lstlisting}
+  \end{block}
+\end{frame}
 \section{Fragen und Vorrechnen}
 
 \begin{frame}
