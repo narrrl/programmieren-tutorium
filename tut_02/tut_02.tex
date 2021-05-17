@@ -46,6 +46,7 @@
   showstringspaces=true,
   breakatwhitespace=true,
   keywordstyle=\color{keywordcolor},
+  morekeywords={enum},
   commentstyle=\color{commentcolor},
   stringstyle=\color{stringcolor},
   basicstyle=\footnotesize\ttfamily\color{FGround},
@@ -301,7 +302,7 @@ public static @@cString@@ reverse(@@cString@@ word) {
     \begin{lstlisting}
 public static void printoutArray(int[] arr) {
     for (final int num : arr) {
-      @@cSystem@@.out.println(@@cString@@.valueOf(num));
+        @@cSystem@@.out.println(@@cString@@.valueOf(num));
     }
 }
     \end{lstlisting}
@@ -313,7 +314,7 @@ public static void printoutArray(int[] arr) {
     \begin{lstlisting}
 public static int indexOf(int[] arr, final int element) {
     for (int i = 0; i < arr.length; i++) {
-      if ( arr[i] == element ) return i;
+        if ( arr[i] == element ) return i;
     }
     return -1;
 }
@@ -555,12 +556,144 @@ commonValues = tmpCommonValues;
     \begin{itemize}
       \item OO-Programmierung
       \pause
-      \item Passende Typenwahl für Attribute
+      \item Passende Typenwahl für Attribute/Objekte
       \pause
       \item Grundlegender Aufbau einer Klasse
     \end{itemize}
   \end{block}
 \end{frame}
+
+\begin{frame}[fragile]{Aufgabe C}
+  \begin{block}{Weekday}
+    \begin{lstlisting}
+/**
+ * Weekday is an enum representing the seven days of the week.
+ *
+ * @author Moritz Gstuer
+ * @version 1.0.0
+ */
+public enum @@cWeekday@@ {
+    /**
+     * An instance representing the day of the week called Monday.
+     */
+    MONDAY,
+    ...
+    TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY;
+}
+    \end{lstlisting}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Aufgabe C}
+  \begin{block}{Month}
+    \begin{lstlisting}
+/**
+ * Month is an enum representing the 12 months of a year.
+ *
+ * @author Moritz Gstuer
+ * @version 1.0.0
+ */
+public enum @@cMonth@@ {
+    /**
+     * An instance representing the first month of a year.
+     */
+    JANUARY,
+    ...
+    FEBRUARY, MARCH, APRIL, MAY, JUNE, JULY, AUGUST,
+    SEPTEMBER, OCTOBER, NOVEMBER, DECEMBER;
+}
+    \end{lstlisting}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Aufgabe C}
+  \begin{block}{Time}
+    \begin{lstlisting}
+/**
+ * Represents a specific point of time.
+ *
+ * @author Moritz Gstuer
+ * @version 1.0.0
+ */
+public class Time {
+    private int hour;
+    private int minute;
+    private int second;
+}
+    \end{lstlisting}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Aufgabe C}
+  \begin{block}{Date}
+    \begin{lstlisting}
+/**
+ * Represents a calendar date of the Gregorian calendar.
+ *
+ * @author Moritz Gstuer
+ * @version 1.0.0
+ */
+public class Date {
+    private int year;
+    private Month month;
+    private int day;
+}
+    \end{lstlisting}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Aufgabe C}
+  \begin{block}{DateTime}
+    \begin{lstlisting}
+/**
+ * Represents the combination of a calendar date and a
+ * specific point of time.
+ *
+ * @author Moritz Gstuer
+ * @version 1.0.0
+ */
+public class DateTime {
+    private Date date;
+    private Time time;
+}
+    \end{lstlisting}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Aufgabe C}
+  \begin{block}{Timezone}
+    \begin{lstlisting}
+/**
+ * Represents a zone of time according to the ISO 8601 standard.
+ *
+ * @author Moritz Gstuer
+ * @version 1.0.0
+ */
+public class Timezone {
+    private String identifier;
+    private int timeOffset;
+}
+    \end{lstlisting}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Aufgabe C}
+  \begin{block}{ZonedDateTime}
+    \begin{lstlisting}
+/**
+ * Represents a point of time and date within a specific timezone.
+ *
+ * @author Moritz Gstuer
+ * @version 1.0.0
+ */
+public class ZonedDateTime {
+    private DateTime dateTime;
+    private Timezone timezone;
+}
+    \end{lstlisting}
+  \end{block}
+\end{frame}
+
 \section{Fragen und Vorrechnen}
 
 \begin{frame}
