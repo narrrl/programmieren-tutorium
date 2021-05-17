@@ -143,7 +143,7 @@
 
 \section{Übungsblatt 2}
 \subsection{Aufgabe A: String-Utility}
-\begin{frame}{Aufgabe A}
+\begin{frame}{Aufgabe A - Aufgabe und Lernziele}
   \begin{block}{Aufgabe}
     \pause
     Utility-Klasse für Strings schreiben
@@ -159,7 +159,7 @@
   \end{block}
 \end{frame}
 
-\begin{frame}[fragile]{Aufgabe A}
+\begin{frame}[fragile]{Aufgabe A - Privater Konstruktor/capitalize}
   \begin{alertblock}{Privater Konstruktur und \color{keywordcolor}final}
     \begin{lstlisting}
 public final class @@cStringUtility@@ {
@@ -180,7 +180,7 @@ public static @@cString@@ capitalize(@@cString@@ word) {
   \end{block}
 \end{frame}
 
-\begin{frame}[fragile]{Aufgabe A}
+\begin{frame}[fragile]{Aufgabe A - countCharacter}
   \begin{block}{countCharacter}
     \begin{lstlisting}
 public static int countCharacter(@@cString@@ word, char character) {
@@ -196,7 +196,7 @@ public static int countCharacter(@@cString@@ word, char character) {
   \end{block}
 \end{frame}
 
-\begin{frame}[fragile]{Aufgabe A}
+\begin{frame}[fragile]{Aufgabe A - isAnagram}
   \begin{block}{isAnagram}
     \begin{lstlisting}
 public static boolean isAnagram(@@cString@@ word1, @@cString@@ word2) {
@@ -215,7 +215,7 @@ public static boolean isAnagram(@@cString@@ word1, @@cString@@ word2) {
   \end{block}
 \end{frame}
 
-\begin{frame}[fragile]{Aufgabe A}
+\begin{frame}[fragile]{Aufgabe A - isPalindrome/removeCharacter}
   \begin{block}{isPalindrome}
     \begin{lstlisting}
 public static boolean isPalindrome(@@cString@@ word) {
@@ -233,7 +233,7 @@ public static @@cString@@ removeCharacter(@@cString@@ word, int index) {
   \end{block}
 \end{frame}
 
-\begin{frame}[fragile]{Aufgabe A}
+\begin{frame}[fragile]{Aufgabe A - reverse}
   \begin{block}{reverse}
     \begin{lstlisting}
 public static @@cString@@ reverse(@@cString@@ word) {
@@ -254,7 +254,7 @@ public static @@cString@@ reverse(@@cString@@ word) {
   Alternative zu \color{classcolor}String \color{FGround} im Loop? \pause \color{classcolor}StringBuilder\color{FGround}!
 \end{frame}
 
-\begin{frame}[fragile]{Aufgabe A}
+\begin{frame}[fragile]{Aufgabe A reverse mit StringBuilder}
   \begin{exampleblock}{reverse - StringBuilder}
     \begin{lstlisting}
 public static @@cString@@ reverse(@@cString@@ word) {
@@ -272,7 +272,7 @@ public static @@cString@@ reverse(@@cString@@ word) {
 
 \subsection{Aufgabe B - Integer-Utility}
 
-\begin{frame}{Aufgabe B}
+\begin{frame}{Aufgabe B - Aufgabe und Lernziele}
   \begin{block}{Aufgabe}
     \pause
     Utility-Klasse für Integer-Arrays
@@ -336,8 +336,8 @@ while (iter.hasNext()) {
   \end{exampleblock}
 \end{frame}
 
-\begin{frame}[fragile]{Aufgabe B}
-  \begin{block}{Privater Konstruktor und \color{keywordcolor}final}
+\begin{frame}[fragile]{Aufgabe B - Privater Konstruktor und final}
+  \begin{alertblock}{Privater Konstruktor und \color{keywordcolor}final}
     \begin{lstlisting}
 public final class @@cIntegerUtility@@ {
     /**
@@ -351,10 +351,10 @@ public final class @@cIntegerUtility@@ {
             @@cIllegalStateException@@(ERROR_UTILITY_CLASS_INSTANTIATION);
     }
     \end{lstlisting}
-  \end{block}
+  \end{alertblock}
 \end{frame}
 
-\begin{frame}[fragile]{Aufgabe B}
+\begin{frame}[fragile]{Aufgabe B - Hilfsmethoden}
   \begin{block}{truncate - Hilfsmethode}
     \begin{lstlisting}
 private static int[] truncate(int[] values, int length) {
@@ -372,7 +372,7 @@ private static int[] truncate(int[] values, int length) {
   \end{block}
 \end{frame}
 
-\begin{frame}[fragile]{Aufgabe B}
+\begin{frame}[fragile]{Aufgabe B - Hilfsmethoden}
   \begin{block}{isOdd - Hilfsmethode}
     \begin{lstlisting}
 private static boolean isOdd(int value) {
@@ -392,7 +392,7 @@ private static boolean contains(int[] values, int value) {
   \end{block}
 \end{frame}
 
-\begin{frame}[fragile]{Aufgabe B}
+\begin{frame}[fragile]{Aufgabe B - greaterThan}
   \begin{block}{greaterThan}
     \begin{lstlisting}
 public static int[] greaterThan(int[] values, int threshold) {
@@ -413,7 +413,7 @@ public static int[] greaterThan(int[] values, int threshold) {
 \end{frame}
 
 
-\begin{frame}[fragile]{Aufgabe B}
+\begin{frame}[fragile]{Aufgabe B - getOdds}
   \begin{block}{getOdds}
     \begin{lstlisting}
 public static int[] getOdds(int[] values) {
@@ -435,7 +435,7 @@ public static int[] getOdds(int[] values) {
 
 
 
-\begin{frame}[fragile]{Aufgabe B}
+\begin{frame}[fragile]{Aufgabe B - search}
   \begin{block}{search}
     \begin{lstlisting}
 public static int search(int[] values, int key) {
@@ -450,7 +450,7 @@ public static int search(int[] values, int key) {
   \end{block}
 \end{frame}
 
-\begin{frame}[fragile]{Aufgabe B}
+\begin{frame}[fragile]{Aufgabe B - sort}
   \begin{block}{sort}
     \begin{lstlisting}
 public static int[] sort(int[] values) {
@@ -468,7 +468,7 @@ public static int[] sort(int[] values) {
   \end{block}
 \end{frame}
 
-\begin{frame}[fragile]{Aufgabe B}
+\begin{frame}[fragile]{Aufgabe B - sort}
   \begin{block}{sort}
     \begin{lstlisting}
 ...
@@ -484,7 +484,7 @@ for (int j = 0; j < i - 1; j++) {
   \end{block}
 \end{frame}
 
-\begin{frame}[fragile]{Aufgabe B}
+\begin{frame}[fragile]{Aufgabe B - median}
   \begin{block}{median}
     \begin{lstlisting}
 public static double median(int[] values) {
@@ -506,7 +506,7 @@ public static double median(int[] values) {
   \end{block}
 \end{frame}
 
-\begin{frame}[fragile]{Aufgabe B}
+\begin{frame}[fragile]{Aufgabe B - common}
   \begin{block}{common}
     \begin{lstlisting}
 public static int[] common(int[] a, int[] b) {
@@ -525,7 +525,7 @@ public static int[] common(int[] a, int[] b) {
   \end{block}
 \end{frame}
 
-\begin{frame}[fragile]{Aufgabe B}
+\begin{frame}[fragile]{Aufgabe B - common}
   \begin{block}{common}
     \begin{lstlisting}
 ...
@@ -545,7 +545,7 @@ commonValues = tmpCommonValues;
 
 \subsection{Aufgabe C - Kalender}
 
-\begin{frame}{Aufgabe C}
+\begin{frame}{Aufgabe C - Kalender}
   \begin{block}{Aufgabe}
     \pause
     Einen Kalender in OOP modellieren
@@ -563,7 +563,7 @@ commonValues = tmpCommonValues;
   \end{block}
 \end{frame}
 
-\begin{frame}[fragile]{Aufgabe C}
+\begin{frame}[fragile]{Aufgabe C - Weekday}
   \begin{block}{Weekday}
     \begin{lstlisting}
 /**
@@ -584,7 +584,7 @@ public enum @@cWeekday@@ {
   \end{block}
 \end{frame}
 
-\begin{frame}[fragile]{Aufgabe C}
+\begin{frame}[fragile]{Aufgabe C - Month}
   \begin{block}{Month}
     \begin{lstlisting}
 /**
@@ -606,7 +606,7 @@ public enum @@cMonth@@ {
   \end{block}
 \end{frame}
 
-\begin{frame}[fragile]{Aufgabe C}
+\begin{frame}[fragile]{Aufgabe C - Time}
   \begin{block}{Time}
     \begin{lstlisting}
 /**
@@ -615,7 +615,7 @@ public enum @@cMonth@@ {
  * @author Moritz Gstuer
  * @version 1.0.0
  */
-public class Time {
+public class @@cTime@@ {
     private int hour;
     private int minute;
     private int second;
@@ -624,7 +624,7 @@ public class Time {
   \end{block}
 \end{frame}
 
-\begin{frame}[fragile]{Aufgabe C}
+\begin{frame}[fragile]{Aufgabe C - Date}
   \begin{block}{Date}
     \begin{lstlisting}
 /**
@@ -633,16 +633,16 @@ public class Time {
  * @author Moritz Gstuer
  * @version 1.0.0
  */
-public class Date {
+public class @@cDate@@ {
     private int year;
-    private Month month;
+    private @@cMonth@@ month;
     private int day;
 }
     \end{lstlisting}
   \end{block}
 \end{frame}
 
-\begin{frame}[fragile]{Aufgabe C}
+\begin{frame}[fragile]{Aufgabe C - DateTime}
   \begin{block}{DateTime}
     \begin{lstlisting}
 /**
@@ -652,15 +652,15 @@ public class Date {
  * @author Moritz Gstuer
  * @version 1.0.0
  */
-public class DateTime {
-    private Date date;
-    private Time time;
+public class @@cDateTime@@ {
+    private @@cDate@@ date;
+    private @@cTime@@ time;
 }
     \end{lstlisting}
   \end{block}
 \end{frame}
 
-\begin{frame}[fragile]{Aufgabe C}
+\begin{frame}[fragile]{Aufgabe C - Timezone}
   \begin{block}{Timezone}
     \begin{lstlisting}
 /**
@@ -669,15 +669,15 @@ public class DateTime {
  * @author Moritz Gstuer
  * @version 1.0.0
  */
-public class Timezone {
-    private String identifier;
+public class @@cTimezone@@ {
+    private @@cString@@ identifier;
     private int timeOffset;
 }
     \end{lstlisting}
   \end{block}
 \end{frame}
 
-\begin{frame}[fragile]{Aufgabe C}
+\begin{frame}[fragile]{Aufgabe C - ZonedDateTime}
   \begin{block}{ZonedDateTime}
     \begin{lstlisting}
 /**
@@ -686,13 +686,103 @@ public class Timezone {
  * @author Moritz Gstuer
  * @version 1.0.0
  */
-public class ZonedDateTime {
-    private DateTime dateTime;
-    private Timezone timezone;
+public class @@cZonedDateTime@@ {
+    private @@cDateTime@@ dateTime;
+    private @@cTimezone@@ timezone;
 }
     \end{lstlisting}
   \end{block}
 \end{frame}
+
+\section{Korrektur}
+\begin{frame}{Korrektur - Disclaimer}
+  \begin{alertblock}{Disclaimer}
+    Ich habe eure Abgaben nicht zwingend korrigiert, also nutzt das Beschwerde-System von Artemis!
+  \end{alertblock}
+
+  \begin{block}{Ich beantworte gerne, ...}
+    \begin{itemize}
+      \item Inhaltliche Fragen
+      \item Fragen übers Studium
+      \item Informatik-Fragen
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}{Korrektur - Häufige Fehler}
+  \begin{block}{Häufige Fehler}
+    \begin{itemize}
+      \pause
+      \item ordentlicher Javadoc (\color{alertcolor}ab Blatt 3 gibts Abzug\color{FGround})
+      \pause
+      \item Quelltext-Duplikate durch Hilfsmethoden vermeiden
+      \pause
+      \item Utility-Klassen brauchen einen privaten Konstruktor und müssen \color{keywordcolor}final \color{FGround}sein
+      \pause
+      \item Java-Sourcecode sollte in einer Datei mit der Dateiendung .java liegen
+      \pause
+      \item Schaut was Artemis euch ausgibt. Wenn eure Abgabe nicht Kompiliert gibt es 0 Punkte!
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Javadoc}
+  \begin{exampleblock}{Aufbau eines Methoden-Javadoc}
+    \begin{lstlisting}
+/**
+ * Kurze Beschreibung was die Methode macht.
+ * Im besten Fall wird auch erwähnt welche Randbedingungen auftreten
+ * können.
+ *
+ * @throws EXCEPION was und wann eine Methode EXCEPION wirft
+ * @param PARAMETER_NAME beschreibt einen Parameter der Methode.
+ * @return beschreibt was die Methode zurückgibt.
+ */
+    \end{lstlisting}
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]{Javadoc}
+  \begin{exampleblock}{Aufbau eines Klassen-Javadoc}
+    \begin{lstlisting}
+/**
+ * Kurze Beschreibung was die Klasse modelliert.
+ * Mit {@link path.to.some.Clazz} kann man andere
+ * Klassen verlinken oder mit {@link Clazz#Methode/Variabel}
+ * können auch Attribute, Variabeln und Methoden referenziert werden
+ *
+ * @author u-kürzel
+ * @version 1.0
+ */
+    \end{lstlisting}
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Tipps zu Blatt 3}
+  \begin{block}{Was ihr beachten solltet}
+    \begin{itemize}
+      \pause
+      \item Achtet auf eine saubere Trennung von Logik und Benutzerinteraktion
+      \pause
+      \item Dafür bietet es sich an die Musterlösungen vom vergangenen Semester anzuschauen
+      \pause
+      \item Referenziert Objekte nicht über Strings!
+      \pause
+      \item Schreibt sinnvollen Javadoc
+      \pause
+      \item Vermeidet in Programmieren statische Variabeln, die sich wie Attribute verhalten. \pause \linebreak
+        Mann kann sich merken:
+        \begin{itemize}
+          \pause
+          \item In Programmieren ist eigentlich alles \color{keywordcolor}static \color{FGround}auch \color{keywordcolor}final\color{FGround}
+          \pause
+          \item Statt einen statischen Beobachter für Objekte zu haben, sollte dieser Beobachter evt. ein Attribut von einem anderen Objekt sein.
+        \end{itemize}
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+
 
 \section{Fragen und Vorrechnen}
 
