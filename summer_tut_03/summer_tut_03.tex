@@ -161,7 +161,7 @@
   \end{block}
 \end{frame}
 
-\begin{frame}[fragile]{Aufgabe A - Privater Konstruktor/capitalize}
+\begin{frame}[fragile]{Aufgabe A - Privater Konstruktor}
   \begin{alertblock}{Privater Konstruktur und \color{keywordcolor}final}
     \begin{lstlisting}
 public final class @@cStringUtility@@ {
@@ -172,67 +172,6 @@ public final class @@cStringUtility@@ {
     }
     \end{lstlisting}
   \end{alertblock}
-  \pause
-  \begin{block}{capitalize}
-    \begin{lstlisting}
-public static @@cString@@ capitalize(@@cString@@ word) {
-    return word.substring(0, 1).toUpperCase() + word.substring(1);
-}
-    \end{lstlisting}
-  \end{block}
-\end{frame}
-
-\begin{frame}[fragile]{Aufgabe A - countCharacter}
-  \begin{block}{countCharacter}
-    \begin{lstlisting}
-public static int countCharacter(@@cString@@ word, char character) {
-    int count = 0;
-    for (char wordCharacter : word.toCharArray()) {
-        if (wordCharacter == character) {
-            count += 1;
-        }
-    }
-    return count;
-}
-    \end{lstlisting}
-  \end{block}
-\end{frame}
-
-\begin{frame}[fragile]{Aufgabe A - isAnagram}
-  \begin{block}{isAnagram}
-    \begin{lstlisting}
-public static boolean isAnagram(@@cString@@ word1, @@cString@@ word2) {
-    // If the words have a different lengths, they cannot be anagrams
-    if (word1.length() != word2.length()) return false;
-    @@cString@@ anagram = word2;
-    // We do not need the indices so we use foreach
-    for (final char character : word1.toCharArray()) {
-        final int index = anagram.indexOf(character);
-        if (index == -1) return false;
-        anagram = removeCharacter(anagram, index);
-    }
-    return anagram.isEmpty();
-}
-    \end{lstlisting}
-  \end{block}
-\end{frame}
-
-\begin{frame}[fragile]{Aufgabe A - isPalindrome/removeCharacter}
-  \begin{block}{isPalindrome}
-    \begin{lstlisting}
-public static boolean isPalindrome(@@cString@@ word) {
-    return word.equals(reverse(word));
-}
-    \end{lstlisting}
-  \end{block}
-  \pause
-  \begin{block}{removeCharacter}
-    \begin{lstlisting}
-public static @@cString@@ removeCharacter(@@cString@@ word, int index) {
-    return word.substring(0, index) + word.substring(index + 1);
-}
-    \end{lstlisting}
-  \end{block}
 \end{frame}
 
 \begin{frame}[fragile]{Aufgabe A - reverse}
@@ -271,6 +210,73 @@ public static @@cString@@ reverse(@@cString@@ word) {
     \end{lstlisting}
   \end{exampleblock}
 \end{frame}
+
+
+\begin{frame}[fragile]{Aufgabe A - isPalindrome/removeCharacter}
+  \begin{block}{isPalindrome}
+    \begin{lstlisting}
+public static boolean isPalindrome(@@cString@@ word) {
+    return word.equals(reverse(word));
+}
+    \end{lstlisting}
+  \end{block}
+  \pause
+  \begin{block}{removeCharacter}
+    \begin{lstlisting}
+public static @@cString@@ removeCharacter(@@cString@@ word, int index) {
+    return word.substring(0, index) + word.substring(index + 1);
+}
+    \end{lstlisting}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Aufgabe A - isAnagram}
+  \begin{block}{isAnagram}
+    \begin{lstlisting}
+public static boolean isAnagram(@@cString@@ word1, @@cString@@ word2) {
+    // If the words have a different lengths, they cannot be anagrams
+    if (word1.length() != word2.length()) return false;
+    @@cString@@ anagram = word2;
+    // We do not need the indices so we use foreach
+    for (final char character : word1.toCharArray()) {
+        final int index = anagram.indexOf(character);
+        if (index == -1) return false;
+        anagram = removeCharacter(anagram, index);
+    }
+    return anagram.isEmpty();
+}
+    \end{lstlisting}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Aufgabe A - capitalize}
+  \begin{block}{capitalize}
+    \begin{lstlisting}
+public static @@cString@@ capitalize(@@cString@@ word) {
+    return word.substring(0, 1).toUpperCase() + word.substring(1);
+}
+    \end{lstlisting}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Aufgabe A - countCharacter}
+  \begin{block}{countCharacter}
+    \begin{lstlisting}
+public static int countCharacter(@@cString@@ word, char character) {
+    int count = 0;
+    for (char wordCharacter : word.toCharArray()) {
+        if (wordCharacter == character) {
+            count += 1;
+        }
+    }
+    return count;
+}
+    \end{lstlisting}
+  \end{block}
+\end{frame}
+
+
+
 
 \subsection{Aufgabe B - Integer-Utility}
 
