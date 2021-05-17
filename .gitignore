@@ -32,4 +32,5 @@ Thumbs.db
 .settings
 bin/
 
-*/tut_*.pdf
+*/*tut_*.pdf
+Build_Output
