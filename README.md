@@ -4,7 +4,7 @@
 
 * Fira Code Font
 * xelatex
-* [https://github.com/matze/mtheme](Metropolis-Beamer-Theme)
+* [Metropolis-Beamer-Theme](https://github.com/matze/mtheme)
 
 ## Building
 
