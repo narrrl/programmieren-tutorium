@@ -4,7 +4,7 @@ sleep 3s
 if hash apt 2>/dev/null; then
     printf "Found apt manager\n"
     sleep 3s
-    sudo apt-get install texlive-full
+    sudo apt-get install texlive-full texlive-xetex
     fonts_dir="${HOME}/.local/share/fonts"
     if [ ! -d "${fonts_dir}" ]; then
         echo "mkdir -p $fonts_dir"
