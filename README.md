@@ -11,7 +11,7 @@
 ```
 ./install_dependencies.sh
 ```
-Tested on Arch, but debian based should work too.
+Tested on Arch, Ubuntu 20.04 and Pop-OS.
 
 ## Building
 
