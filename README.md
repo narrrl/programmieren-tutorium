@@ -6,6 +6,13 @@
 * [xelatex (enthalten in texlive)](https://archlinux.org/groups/x86_64/texlive-most/)
 * [Metropolis-Beamer-Theme](https://github.com/matze/mtheme)
 
+### Unix-Install
+
+```
+./install_dependencies.sh
+```
+Tested on Arch, but debian based should work too.
+
 ## Building
 
 `./build.sh`
