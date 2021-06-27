@@ -9,3 +9,9 @@
 ## Building
 
 `./build.sh`
+
+Please use this setting to keep the history clean
+```
+# Rebase when pulling to prevent merge commits
+git config pull.rebase true
+```
