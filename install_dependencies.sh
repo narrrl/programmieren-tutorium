@@ -50,12 +50,12 @@ fi
 printf "Installing Metropolis Theme\n"
 sleep 3
 if [ -d "/tmp/mtheme" ]; then
-    sudo rm -rf /tmp/mtheme;
+    rm -rf /tmp/mtheme;
 fi
 git clone https://github.com/matze/mtheme.git /tmp/mtheme
 cd /tmp/mtheme
 make sty
-sudo make install
+make install
 
 printf "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣬⡛⣿⣿⣿⣯⢻\n"
 printf "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⢻⣿⣿⢟⣻⣿⣿⣿⣿⣿⣿⣮⡻⣿⣿⣧\n"
