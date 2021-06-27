@@ -1,0 +1,812 @@
+% Author: Nils Pukropp
+% E-Mail: nils.pukropp@student.kit.edu
+% License: MIT
+\documentclass[aspectratio=169]{beamer}
+
+\usepackage{fontspec}
+
+\usetheme{metropolis}
+
+\setmonofont[
+  Contextuals={Alternate},
+  Ligatures = TeX,
+]{Fira Code}
+
+\newcommand{\HUMONGOUS}{\Huge}
+
+\usepackage{booktabs}
+\usepackage[scale=2]{ccicons}
+
+\usepackage{color}
+
+\definecolor{linkcolor}{HTML}{EE0E61}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor= {linkcolor},
+  urlcolor= {linkcolor},
+  bookmarks={true}
+}
+
+\definecolor{stringcolor}{RGB}{139,233,253}
+\definecolor{commentcolor}{RGB}{189,147,249}
+\definecolor{alertcolor}{RGB}{255,85,85}
+\definecolor{keywordcolor}{RGB}{255 184 108}
+\definecolor{FGround}{RGB}{248,248,242}
+\definecolor{BGround}{RGB}{40,42,54}
+\definecolor{classcolor}{HTML}{EE0E61}
+\definecolor{numbercolor}{HTML}{6897bb}
+\definecolor{darkgray}{HTML}{2b2b2b}
+\definecolor{nicegreen}{HTML}{50fa7b}
+
+\usepackage{listings}
+\lstset{
+  backgroundcolor=\color{BGround},
+  language=Java,
+  showspaces=false,
+  showtabs=false,
+  breaklines=true,
+  columns = flexible,
+  showstringspaces=true,
+  breakatwhitespace=true,
+  keywordstyle=\color{keywordcolor},
+  morekeywords={enum},
+  commentstyle=\color{commentcolor},
+  stringstyle=\color{stringcolor},
+  basicstyle=\footnotesize\ttfamily\color{FGround},
+  numbers=left,
+  numbersep=5pt,
+  numberstyle=\color{numbercolor},
+  captionpos=b,
+  extendedchars=true,
+  tabsize=2,
+  escapeinside={\%*}{*)},
+  moredelim=[is][\color{classcolor}]{@@c}{@@}
+}
+
+\usepackage{pgfplots}
+\usepgfplotslibrary{dateplot}
+\pgfplotsset{compat=1.17}
+
+\usepackage{xspace}
+\usepackage{multicol}
+
+\title{\color{classcolor}Tutorium Woche 3 - Termin 1}
+\subtitle{Übungsblatt 2}
+\date{\today}
+\author{Nils Pukropp}
+\institute{INSTITUT FÜR PROGRAMMSTRUKTUREN UND DATENORGANISATION}
+\titlegraphic{\hfill\includegraphics[height=1.5cm]{../logos/KIT-Logo.png}}
+\metroset{block=fill}
+\setbeamercolor{background canvas}{bg=darkgray}
+\setbeamercolor{normal text}{fg=FGround, bg=darkgray}
+\setbeamercolor{alerted text}{fg=alertcolor, bg=darkgray}
+\setbeamercolor{example text}{fg=commentcolor, bg=darkgray}
+\setbeamercolor{progressbar in foot}{fg=classcolor}
+\setbeamercolor{frametitle}{bg=BGround, fg=FGround}
+
+
+\begin{document}
+\maketitle
+
+\begin{frame}{Übersicht}
+  \setbeamertemplate{section in toc}[sections numbered]
+  \tableofcontents[hideallsubsections]
+\end{frame}
+
+\section{Vorstellung}
+\begin{frame}[fragile]{Vorstellung}
+  \begin{block}{Über mich}
+  \begin{itemize}
+    \item Nils Pukropp, 21 Jahre
+    \begin{itemize}
+      \item Informatik Bachelor im 4. Semester
+    \end{itemize}
+    \item E-Mail: \href{mailto:nils.pukropp@student.kit.edu}{nils.pukropp@student.kit.edu}
+    \item Discord: \href{https://discord.gg/6GpaFE8w4y}{KIT Mathe Info}
+  \end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Vorstellung}
+ \begin{columns}[T,onlytextwidth]
+    \column{0.5\textwidth}
+      \begin{block}{Regeln/Empfehlungen für MS Teams}
+        \begin{itemize}
+          \item Ton aus/Webcam an (falls, vorhanden, Alternative: droidcam)
+          \item De-Anonymisierung aktiviert
+          \item Fragen stellen \begin{itemize}
+            \item einfach los fragen (einfach zwischen rein)
+            \item oder Hand heben
+            \item Duzen ist erwünscht
+          \end{itemize}
+        \end{itemize}
+      \end{block}
+    \column{0.05\textwidth}
+    \column{0.5\textwidth}
+      \includegraphics[scale=0.4]{../images/questions-meme.jpg}
+  \end{columns}
+
+\end{frame}
+
+\section{Organisatorisches}
+\begin{frame}[fragile]{Organisatorisches}
+  \begin{alertblock}{Organisatorisches}
+    \begin{itemize}
+      \item Zum Vorrechen im Ilias anmelden
+      \item Übungsblatt 3 \begin{itemize}
+        \item \color{nicegreen}Ausgabe: \color{FGround} 17. Mai, 13 Uhr
+        \item \color{numbercolor} Artemis: \color{FGround} 21. Mai, 13 Uhr
+        \item \color{alertcolor}Deadline: \color{FGround} 01. Juni, 06 Uhr
+      \end{itemize}
+    \end{itemize}
+  \end{alertblock}
+  \begin{block}{Vorrechnen}
+    Ihr werdet ziemlich sicher bestehen, wenn eure Abgabe selbstständig erstellt wurde und das Vorrechnen ist deutlich angenehmer als die Präsenzübung
+  \end{block}
+\end{frame}
+
+\section{Übungsblatt 2}
+\subsection{Aufgabe A: String-Utility}
+\begin{frame}{Aufgabe A - Aufgabe und Lernziele}
+  \begin{block}{Aufgabe}
+    \pause
+    Utility-Klasse für Strings schreiben
+  \end{block}
+  \pause
+  \begin{block}{Lernziele}
+    \begin{itemize}
+      \pause
+      \item Umgang mit Strings
+      \pause
+      \item Aufbau von Utility-Klassen
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Aufgabe A - Privater Konstruktor}
+  \begin{alertblock}{Privater Konstruktor und \color{keywordcolor}final}
+    \begin{lstlisting}
+public final class @@cStringUtility@@ {
+
+    private @@cStringUtility@@() {
+        throw new
+            @@cIllegalStateException@@(ERROR_UTILITY_CLASS_INSTANTIATION);
+    }
+    \end{lstlisting}
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}[fragile]{Aufgabe A - reverse}
+  \begin{block}{reverse}
+    \begin{lstlisting}
+public static @@cString@@ reverse(@@cString@@ word) {
+    @@cString@@ reverse = "";
+
+    // We need access to the indices of the characters,
+    // so we have to use for
+    // instead of foreach
+    for (int i = word.length() - 1; i >= 0; i--) {
+        reverse += word.charAt(i);
+    }
+
+    return reverse;
+}
+    \end{lstlisting}
+  \end{block}
+  \pause
+  Alternative zu \color{classcolor}String \color{FGround} im Loop? \pause \color{classcolor}StringBuilder\color{FGround}!
+\end{frame}
+
+\begin{frame}[fragile]{Aufgabe A reverse mit StringBuilder}
+  \begin{exampleblock}{reverse - StringBuilder}
+    \begin{lstlisting}
+public static @@cString@@ reverse(@@cString@@ word) {
+    @@cStringBuilder@@ reverse = new @@cStringBuilder@@;
+
+    for (int i = word.length() - 1; i >= 0; i--) {
+        reverse.append(word.charAt(i));
+    }
+
+    return reverse.toString();
+}
+    \end{lstlisting}
+  \end{exampleblock}
+\end{frame}
+
+
+\begin{frame}[fragile]{Aufgabe A - isPalindrome/removeCharacter}
+  \begin{block}{isPalindrome}
+    \begin{lstlisting}
+public static boolean isPalindrome(@@cString@@ word) {
+    return word.equals(reverse(word));
+}
+    \end{lstlisting}
+  \end{block}
+  \pause
+  \begin{block}{removeCharacter}
+    \begin{lstlisting}
+public static @@cString@@ removeCharacter(@@cString@@ word, int index) {
+    return word.substring(0, index) + word.substring(index + 1);
+}
+    \end{lstlisting}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Aufgabe A - isAnagram}
+  \begin{block}{isAnagram}
+    \begin{lstlisting}
+public static boolean isAnagram(@@cString@@ word1, @@cString@@ word2) {
+    // If the words have a different lengths, they cannot be anagrams
+    if (word1.length() != word2.length()) return false;
+    @@cString@@ anagram = word2;
+    // We do not need the indices so we use foreach
+    for (final char character : word1.toCharArray()) {
+        final int index = anagram.indexOf(character);
+        if (index == -1) return false;
+        anagram = removeCharacter(anagram, index);
+    }
+    return anagram.isEmpty();
+}
+    \end{lstlisting}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Aufgabe A - capitalize}
+  \begin{block}{capitalize}
+    \begin{lstlisting}
+public static @@cString@@ capitalize(@@cString@@ word) {
+    return word.substring(0, 1).toUpperCase() + word.substring(1);
+}
+    \end{lstlisting}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Aufgabe A - countCharacter}
+  \begin{block}{countCharacter}
+    \begin{lstlisting}
+public static int countCharacter(@@cString@@ word, char character) {
+    int count = 0;
+    for (char wordCharacter : word.toCharArray()) {
+        if (wordCharacter == character) {
+            count += 1;
+        }
+    }
+    return count;
+}
+    \end{lstlisting}
+  \end{block}
+\end{frame}
+
+
+
+
+\subsection{Aufgabe B - Integer-Utility}
+
+\begin{frame}{Aufgabe B - Aufgabe und Lernziele}
+  \begin{block}{Aufgabe}
+    \pause
+    Utility-Klasse für Integer-Arrays
+  \end{block}
+
+  \pause
+  \begin{block}{Lernziele}
+    \begin{itemize}
+      \item Aufbau von Utility-Klassen
+      \pause
+      \item Umgang mit Arrays
+      \pause
+      \item Umgang mit Schleifen \begin{itemize}
+        \pause
+        \item Wenn Index \color{alertcolor}nicht \color{FGround}benötigt wird: \color{keywordcolor}for-each\color{FGround}
+        \pause
+        \item Wenn Index benötigt wird: \color{keywordcolor}for\color{FGround}
+        \pause
+        \item Wenn wir eine Bedingung haben: \color{keywordcolor}while\color{FGround}
+      \end{itemize}
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Wann welcher Schleifentyp?}
+  \begin{exampleblock}{For-each}
+    \begin{lstlisting}
+public static void printoutArray(int[] arr) {
+    for (final int num : arr) {
+        @@cSystem@@.out.println(@@cString@@.valueOf(num));
+    }
+}
+    \end{lstlisting}
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]{Wann welcher Schleifentyp?}
+  \begin{exampleblock}{For}
+    \begin{lstlisting}
+public static int indexOf(int[] arr, final int element) {
+    for (int i = 0; i < arr.length; i++) {
+        if ( arr[i] == element ) return i;
+    }
+    return -1;
+}
+    \end{lstlisting}
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]{Wann welcher Schleifentyp?}
+  \begin{exampleblock}{While}
+    \begin{lstlisting}
+...
+// integerList ist von Typ List<Integer>
+@@cIterator@@<@@cInteger@@> iter = integerList.iterator();
+while (iter.hasNext()) {
+    @@cSystem@@.out.println(iter.next());
+}
+...
+    \end{lstlisting}
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]{Aufgabe B - Privater Konstruktor und final}
+  \begin{alertblock}{Privater Konstruktor und \color{keywordcolor}final}
+    \begin{lstlisting}
+public final class @@cIntegerUtility@@ {
+    /**
+     * Creates a new instance of {@link IntegerUtility}.
+     *
+     * @throws IllegalStateException if constructor is called
+     * because {@link IntegerUtility} is a utility class.
+     */
+    private @@cIntegerUtility@@() {
+        throw new
+            @@cIllegalStateException@@(ERROR_UTILITY_CLASS_INSTANTIATION);
+    }
+    \end{lstlisting}
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}[fragile]{Aufgabe B - Hilfsmethoden}
+  \begin{block}{truncate - Hilfsmethode}
+    \begin{lstlisting}
+private static int[] truncate(int[] values, int length) {
+    // Check whether array is long enough for requested truncation.
+    if (length > values.length) {
+        throw new
+            @@cIllegalArgumentException@@(ERROR_INSUFFICIENT_ARRAY_LENGTH);
+    }
+    // Truncate array to number of written values and return it.
+    int[] truncatedValues = new int[length];
+    @@cSystem@@.arraycopy(values, 0, truncatedValues, 0, length);
+    return truncatedValues;
+}
+    \end{lstlisting}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Aufgabe B - Hilfsmethoden}
+  \begin{block}{isOdd - Hilfsmethode}
+    \begin{lstlisting}
+private static boolean isOdd(int value) {
+    return @@cMath@@.abs(value % 2) == 1;
+}
+    \end{lstlisting}
+  \end{block}
+
+  \pause
+
+  \begin{block}{contains - Hilfsmethode}
+    \begin{lstlisting}
+private static boolean contains(int[] values, int value) {
+    return search(values, value) != RETURN_VALUE_NOT_FOUND;
+}
+    \end{lstlisting}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Aufgabe B - greaterThan}
+  \begin{block}{greaterThan}
+    \begin{lstlisting}
+public static int[] greaterThan(int[] values, int threshold) {
+    // Initialize and fill new array with values greater than threshold
+    int[] greaterValues = new int[values.length];
+    int indexOfLastValueAdded = -1;
+    for (int value : values) {
+        // If a greater value is found, write it to next position in array
+        if (value > threshold) {
+            greaterValues[++indexOfLastValueAdded] = value;
+        }
+    }
+    // Truncate result to number of added elements and return it
+    return truncate(greaterValues, indexOfLastValueAdded + 1);
+}
+    \end{lstlisting}
+  \end{block}
+\end{frame}
+
+
+\begin{frame}[fragile]{Aufgabe B - getOdds}
+  \begin{block}{getOdds}
+    \begin{lstlisting}
+public static int[] getOdds(int[] values) {
+    // Initialize and fill new array with odd values
+    int[] oddValues = new int[values.length];
+    int indexOfLastValueAdded = -1;
+    for (int value : values) {
+        // If an odd value is found, write it to next position in array
+        if (isOdd(value)) {
+            oddValues[++indexOfLastValueAdded] = value;
+        }
+    }
+    // Truncate result to number of added elements and return it
+    return truncate(oddValues, indexOfLastValueAdded + 1);
+}
+    \end{lstlisting}
+  \end{block}
+\end{frame}
+
+
+
+\begin{frame}[fragile]{Aufgabe B - search}
+  \begin{block}{search}
+    \begin{lstlisting}
+public static int search(int[] values, int key) {
+    for (int i = 0; i < values.length; i++) {
+        if (values[i] == key) {
+            return i;
+        }
+    }
+    return RETURN_VALUE_NOT_FOUND;
+}
+    \end{lstlisting}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Aufgabe B - sort}
+  \begin{block}{sort}
+    \begin{lstlisting}
+public static int[] sort(int[] values) {
+    // Copy values to new array
+    int[] sortedValues = new int[values.length];
+    @@cSystem@@.arraycopy(values, 0, sortedValues, 0, values.length);
+    // Sort copied array with bubblesort
+    for (int i = sortedValues.length; i > 1; i--) {
+        ...
+        ...
+    }
+    return sortedValues;
+}
+    \end{lstlisting}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Aufgabe B - sort}
+  \begin{block}{sort}
+    \begin{lstlisting}
+...
+for (int j = 0; j < i - 1; j++) {
+    if (sortedValues[j] > sortedValues[j + 1]) {
+        int oldHighIndexValue = sortedValues[j + 1];
+        sortedValues[j + 1] = sortedValues[j];
+        sortedValues[j] = oldHighIndexValue;
+    }
+}
+...
+    \end{lstlisting}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Aufgabe B - median}
+  \begin{block}{median}
+    \begin{lstlisting}
+public static double median(int[] values) {
+    // Sort array and calculate its (high) middle index.
+    int[] sortedArray = sort(values);
+    int flooredHalfLength = sortedArray.length / 2;
+    // Calculate median
+    double median;
+    if (isOdd(sortedArray.length)) {
+        median = sortedArray[flooredHalfLength];
+    } else {
+        int topHalfValue = sortedArray[flooredHalfLength];
+        int bottomHalfValue = sortedArray[flooredHalfLength - 1];
+        median = ((double) topHalfValue + (double) bottomHalfValue) / 2d;
+    }
+    return median;
+}
+    \end{lstlisting}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Aufgabe B - common}
+  \begin{block}{common}
+    \begin{lstlisting}
+public static int[] common(int[] a, int[] b) {
+    int[] commonValues = new int[0];
+    for (int value : a) {
+        // Check whether value can be found in the other array but was
+        // not added to common values yet
+        if (contains(b, value) && !contains(commonValues, value)) {
+            ...
+            ...
+        }
+    }
+    return commonValues;
+}
+    \end{lstlisting}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Aufgabe B - common}
+  \begin{block}{common}
+    \begin{lstlisting}
+...
+// Create a temporary lengthened array based on the already
+// identified common values
+int[] tmpCommonValues = new int[commonValues.length + 1];
+@@cSystem@@.arraycopy(commonValues, 0, tmpCommonValues, 0,
+    commonValues.length);
+// Add new common value to temporary array and write temporary
+// array back to actual array
+tmpCommonValues[tmpCommonValues.length - 1] = value;
+commonValues = tmpCommonValues;
+...
+    \end{lstlisting}
+  \end{block}
+\end{frame}
+
+\subsection{Aufgabe C - Kalender}
+
+\begin{frame}{Aufgabe C - Kalender}
+  \begin{block}{Aufgabe}
+    \pause
+    Einen Kalender in OOP modellieren
+  \end{block}
+
+  \pause
+  \begin{block}{Lernziele}
+    \begin{itemize}
+      \item OO-Programmierung
+      \pause
+      \item Passende Typenwahl für Attribute/Objekte
+      \pause
+      \item Grundlegender Aufbau einer Klasse
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Aufgabe C - Weekday}
+  \begin{block}{Weekday}
+    \begin{lstlisting}
+/**
+ * Weekday is an enum representing the seven days of the week.
+ *
+ * @author Moritz Gstuer
+ * @version 1.0.0
+ */
+public enum @@cWeekday@@ {
+    /**
+     * An instance representing the day of the week called Monday.
+     */
+    MONDAY,
+    ...
+    TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY;
+}
+    \end{lstlisting}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Aufgabe C - Month}
+  \begin{block}{Month}
+    \begin{lstlisting}
+/**
+ * Month is an enum representing the 12 months of a year.
+ *
+ * @author Moritz Gstuer
+ * @version 1.0.0
+ */
+public enum @@cMonth@@ {
+    /**
+     * An instance representing the first month of a year.
+     */
+    JANUARY,
+    ...
+    FEBRUARY, MARCH, APRIL, MAY, JUNE, JULY, AUGUST,
+    SEPTEMBER, OCTOBER, NOVEMBER, DECEMBER;
+}
+    \end{lstlisting}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Aufgabe C - Time}
+  \begin{block}{Time}
+    \begin{lstlisting}
+/**
+ * Represents a specific point of time.
+ *
+ * @author Moritz Gstuer
+ * @version 1.0.0
+ */
+public class @@cTime@@ {
+    private int hour;
+    private int minute;
+    private int second;
+}
+    \end{lstlisting}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Aufgabe C - Date}
+  \begin{block}{Date}
+    \begin{lstlisting}
+/**
+ * Represents a calendar date of the Gregorian calendar.
+ *
+ * @author Moritz Gstuer
+ * @version 1.0.0
+ */
+public class @@cDate@@ {
+    private int year;
+    private @@cMonth@@ month;
+    private int day;
+}
+    \end{lstlisting}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Aufgabe C - DateTime}
+  \begin{block}{DateTime}
+    \begin{lstlisting}
+/**
+ * Represents the combination of a calendar date and a
+ * specific point of time.
+ *
+ * @author Moritz Gstuer
+ * @version 1.0.0
+ */
+public class @@cDateTime@@ {
+    private @@cDate@@ date;
+    private @@cTime@@ time;
+}
+    \end{lstlisting}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Aufgabe C - Timezone}
+  \begin{block}{Timezone}
+    \begin{lstlisting}
+/**
+ * Represents a zone of time according to the ISO 8601 standard.
+ *
+ * @author Moritz Gstuer
+ * @version 1.0.0
+ */
+public class @@cTimezone@@ {
+    private @@cString@@ identifier;
+    private int timeOffset;
+}
+    \end{lstlisting}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Aufgabe C - ZonedDateTime}
+  \begin{block}{ZonedDateTime}
+    \begin{lstlisting}
+/**
+ * Represents a point of time and date within a specific timezone.
+ *
+ * @author Moritz Gstuer
+ * @version 1.0.0
+ */
+public class @@cZonedDateTime@@ {
+    private @@cDateTime@@ dateTime;
+    private @@cTimezone@@ timezone;
+}
+    \end{lstlisting}
+  \end{block}
+\end{frame}
+
+\section{Korrektur}
+\begin{frame}{Korrektur - Disclaimer}
+  \begin{alertblock}{Disclaimer}
+    Ich habe eure Abgaben nicht zwingend korrigiert, also nutzt das Beschwerde-System von Artemis!
+  \end{alertblock}
+
+  \begin{block}{Ich beantworte gerne, ...}
+    \begin{itemize}
+      \item Inhaltliche Fragen
+      \item Fragen übers Studium
+      \item Informatik-Fragen
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}{Korrektur - Häufige Fehler}
+  \begin{block}{Häufige Fehler}
+    \begin{itemize}
+      \pause
+      \item ordentlicher Javadoc (\color{alertcolor}ab Blatt 3 gibts Abzug\color{FGround})
+      \pause
+      \item Quelltext-Duplikate durch Hilfsmethoden vermeiden
+      \pause
+      \item Utility-Klassen brauchen einen privaten Konstruktor und müssen \color{keywordcolor}final \color{FGround}sein
+      \pause
+      \item Java-Sourcecode sollte in einer Datei mit der Dateiendung .java liegen
+      \pause
+      \item Schaut was Artemis euch ausgibt. Wenn eure Abgabe nicht Kompiliert gibt es 0 Punkte!
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\subsection{How to Javadoc}
+
+\begin{frame}[fragile]{Javadoc}
+  \begin{exampleblock}{Aufbau eines Methoden-Javadoc}
+    \begin{lstlisting}
+/**
+ * Kurze Beschreibung was die Methode macht.
+ * Im besten Fall wird auch erwähnt welche Randbedingungen auftreten
+ * können.
+ *
+ * @throws EXCEPION was und wann eine Methode EXCEPION wirft
+ * @param PARAMETER_NAME beschreibt einen Parameter der Methode.
+ * @return beschreibt was die Methode zurückgibt.
+ */
+    \end{lstlisting}
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]{Javadoc}
+  \begin{exampleblock}{Aufbau eines Klassen-Javadoc}
+    \begin{lstlisting}
+/**
+ * Kurze Beschreibung was die Klasse modelliert.
+ * Mit {@link path.to.some.Clazz} kann man andere
+ * Klassen verlinken oder mit {@link Clazz#Methode/Variabel}
+ * können auch Attribute, Variabeln und Methoden referenziert werden
+ *
+ * @author u-kürzel
+ * @version 1.0
+ */
+    \end{lstlisting}
+  \end{exampleblock}
+\end{frame}
+
+\subsection{Tipps Blatt 3}
+
+\begin{frame}{Tipps zu Blatt 3}
+  \begin{block}{Was ihr beachten solltet}
+    \begin{itemize}
+      \pause
+      \item Achtet auf eine saubere Trennung von Logik und Benutzerinteraktion
+      \pause
+      \item Dafür bietet es sich an die Musterlösungen vom vergangenen Semester anzuschauen
+      \pause
+      \item Referenziert Objekte nicht über Strings!
+      \pause
+      \item Schreibt sinnvollen Javadoc
+      \pause
+      \item Vermeidet in Programmieren statische Variabeln, die sich wie Attribute verhalten. \pause \linebreak
+        Mann kann sich merken:
+        \begin{itemize}
+          \pause
+          \item In Programmieren ist eigentlich alles \color{keywordcolor}static \color{FGround}auch \color{keywordcolor}final\color{FGround}
+          \pause
+          \item Statt einen statischen Beobachter für Objekte zu haben, sollte dieser Beobachter evt. ein Attribut von einem anderen Objekt sein.
+        \end{itemize}
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+
+
+\section{Fragen und Vorrechnen}
+
+\begin{frame}
+  \begin{center}\HUMONGOUS Fragen?\end{center}
+\end{frame}
+
+\begin{frame}
+  \begin{center}\HUMONGOUS Vorrechnen!\end{center}
+\end{frame}
+
+\end{document}

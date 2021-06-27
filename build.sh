@@ -16,7 +16,3 @@ for folder in *tut_*; do
 
     cd ..
 done
-
-# Clean everything else
-cd Build_Output
-# clean files
