@@ -10,7 +10,7 @@
 \setmonofont[
   Contextuals={Alternate},
   Ligatures = TeX,
-]{Fira Code}
+]{FiraCode Nerd Font}
 
 \newcommand{\HUMONGOUS}{\Huge}
 
@@ -71,7 +71,7 @@
 \usepackage{xspace}
 \usepackage{multicol}
 
-\title{\color{classcolor}Tutorium Woche 3 - Termin 1}
+\title{\color{classcolor}Tutorium finale Woche - Termin 1}
 \subtitle{Übungsblatt 2}
 \date{\today}
 \author{Nils Pukropp}
@@ -177,11 +177,13 @@
 \begin{frame}[fragile]{Namenskonventionen}
   \begin{block}{Attribut- und Methodennamen}
     lowerCamelCase \linebreak
+    \pause
     \color{nicegreen}Do.\color{FGround}
     \begin{lstlisting}[numbers=none]
 private int turnCount;
 public void addToken(@@cToken@@ newToken) {...
     \end{lstlisting}
+    \pause
     \color{alertcolor}Don't.\color{FGround}
     \begin{lstlisting}[numbers=none]
 private int n;
@@ -194,10 +196,12 @@ public void add(@@cToken@@ t) {...
 \begin{frame}[fragile]
   \begin{block}{Klassen und Interfaces}
     UpperCamelCase \linebreak
+    \pause
     \color{nicegreen}Do.\color{FGround}
     \begin{lstlisting}[numbers=none]
 public class @@cMain@@ {...
     \end{lstlisting}
+    \pause
     \color{alertcolor}Don't.\color{FGround}
     \begin{lstlisting}[numbers=none]
 public class @@cmain@@ {...
@@ -206,10 +210,12 @@ public class @@cmain@@ {...
 
   \begin{block}{Konstanten}
     UpperCamelCase \linebreak
+    \pause
     \color{nicegreen}Do.\color{FGround}
     \begin{lstlisting}[numbers=none]
 public static final int BOARD_WIDTH = 16;
     \end{lstlisting}
+    \pause
     \color{alertcolor}Don't.\color{FGround}
     \begin{lstlisting}[numbers=none]
 public static final int Width = 16;
@@ -221,6 +227,7 @@ public static final int Width = 16;
   \begin{block}{JavaDocs}
     Alle nicht-privaten Methoden, Konstanten (Auch Enums) und Klassenköpfe ausführlich dokumentieren! \\
     Besonders auf "Seiteneffekte" hinweisen. \linebreak
+    \pause
     \color{nicegreen}Do.\color{FGround}
     \begin{lstlisting}[numbers=none]
 /** 
@@ -237,6 +244,7 @@ void addDataPoint(@@cDataPoint@@ data)
 
 \begin{frame}[fragile]
   \begin{block}{JavaDocs}
+    \pause
     \color{alertcolor}Don't.\color{FGround}
     \begin{lstlisting}[numbers=none]
 /** 
@@ -249,6 +257,64 @@ void addDataPoint(@@cDataPoint@@ data)
  * add-Method.  
  */ 
 void addDataPoint(@@cDataPoint@@ data)
+    \end{lstlisting}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+  \begin{block}{Magic Numbers}
+    Zahlen-Literale außer -1, 0, 1, 2 sollten in Variabeln oder Konstanten verpackt sein, damit man deren Bedeutung gleich erkennt.
+    Das bietet sich auch für Ein-/Ausgabe Strings an. \linebreak
+    \pause
+    \color{nicegreen}Do.\color{FGround}
+    \begin{lstlisting}[numbers=none]
+public static final int DECK_SIZE = 52; 
+for (int i = 0; i < DECK_SIZE; i++) { 
+ ...
+}
+    \end{lstlisting}
+    \pause
+    \color{alertcolor}Don't.\color{FGround}
+    \begin{lstlisting}[numbers=none]
+for (int i = 0; i < 52; i++) { 
+ ...
+} 
+    \end{lstlisting}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+  \begin{block}{Datenkapselung}
+    Attribute \textbf{private}, getter \& setter. Das gilt auch für Listen und Arrays! 
+    Keine Implementierungsdetails verraten durch das herausgeben von ganzen Listen/Arrays. \linebreak
+    \pause
+    \color{nicegreen}Do.\color{FGround}
+    \begin{lstlisting}[numbers=none]
+private int speed; // km/h
+
+public int getSpeedKmh() { return this.speed; }
+public int getSpeedMph() { ... }
+    \end{lstlisting}
+    \pause
+    \color{alertcolor}Don't.\color{FGround}
+    \begin{lstlisting}[numbers=none]
+public int speed; // km/h
+    \end{lstlisting}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+  \begin{block}{Objektorientierung}
+    Gegen Interfaces statt konkreter Implementierung programmieren. \linebreak
+    \pause
+    \color{nicegreen}Do.\color{FGround}
+    \begin{lstlisting}[numbers=none]
+@@cList@@<@@cString@@> list = new @@cArrayList@@<>();
+    \end{lstlisting}
+    \pause
+    \color{alertcolor}Don't.\color{FGround}
+    \begin{lstlisting}[numbers=none]
+@@cArrayList@@<@@cString@@> list = new @@cArrayList@@<>();
     \end{lstlisting}
   \end{block}
 \end{frame}
