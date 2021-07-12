@@ -180,14 +180,78 @@
     \color{nicegreen}Do.\color{FGround}
     \begin{lstlisting}[numbers=none]
 private int turnCount;
+public void addToken(@@cToken@@ newToken) {...
     \end{lstlisting}
     \color{alertcolor}Don't.\color{FGround}
     \begin{lstlisting}[numbers=none]
 private int n;
+public void add(@@cToken@@ t) {...
     \end{lstlisting}
   \end{block}
 \end{frame}
 
+
+\begin{frame}[fragile]
+  \begin{block}{Klassen und Interfaces}
+    UpperCamelCase \linebreak
+    \color{nicegreen}Do.\color{FGround}
+    \begin{lstlisting}[numbers=none]
+public class @@cMain@@ {...
+    \end{lstlisting}
+    \color{alertcolor}Don't.\color{FGround}
+    \begin{lstlisting}[numbers=none]
+public class @@cmain@@ {...
+    \end{lstlisting}
+  \end{block}
+
+  \begin{block}{Konstanten}
+    UpperCamelCase \linebreak
+    \color{nicegreen}Do.\color{FGround}
+    \begin{lstlisting}[numbers=none]
+public static final int BOARD_WIDTH = 16;
+    \end{lstlisting}
+    \color{alertcolor}Don't.\color{FGround}
+    \begin{lstlisting}[numbers=none]
+public static final int Width = 16;
+    \end{lstlisting}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+  \begin{block}{JavaDocs}
+    Alle nicht-privaten Methoden, Konstanten (Auch Enums) und Klassenköpfe ausführlich dokumentieren! \\
+    Besonders auf "Seiteneffekte" hinweisen. \linebreak
+    \color{nicegreen}Do.\color{FGround}
+    \begin{lstlisting}[numbers=none]
+/** 
+ * Method to add a new data point. Updates 
+ * the count and tells connected  
+ * representation objects to update. 
+ *
+ * @param data  the data point to be added 
+ */ 
+void addDataPoint(@@cDataPoint@@ data) 
+    \end{lstlisting}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+  \begin{block}{JavaDocs}
+    \color{alertcolor}Don't.\color{FGround}
+    \begin{lstlisting}[numbers=none]
+/** 
+ * add-Method.  
+ */ 
+void addDataPoint(@@cDataPoint@@ data)
+
+/** 
+ * @param data data
+ * add-Method.  
+ */ 
+void addDataPoint(@@cDataPoint@@ data)
+    \end{lstlisting}
+  \end{block}
+\end{frame}
 % TODO: add tipps for finals
 
 
