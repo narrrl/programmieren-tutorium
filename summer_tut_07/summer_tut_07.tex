@@ -209,7 +209,7 @@ public class @@cmain@@ {...
   \end{block}
 
   \begin{block}{Konstanten}
-    UPPER_CASE_WITH_UNDERSCORE \linebreak
+    UPPER\_CASE\_WITH\_UNDERSCORE \linebreak
     \pause
     \color{nicegreen}Do.\color{FGround}
     \begin{lstlisting}[numbers=none]
@@ -223,7 +223,8 @@ public static final int Width = 16;
   \end{block}
 \end{frame}
 
-\begin{frame}[fragile]
+\subsection{JavaDocs}
+\begin{frame}[fragile]{JavaDocs}
   \begin{block}{JavaDocs}
     Alle nicht-privaten Methoden, Konstanten (Auch Enums) und Klassenköpfe ausführlich dokumentieren! \\
     Besonders auf "Seiteneffekte" hinweisen. \linebreak
@@ -244,7 +245,6 @@ void addDataPoint(@@cDataPoint@@ data)
 
 \begin{frame}[fragile]
   \begin{block}{JavaDocs}
-    \pause
     \color{alertcolor}Don't.\color{FGround}
     \begin{lstlisting}[numbers=none]
 /** 
@@ -261,7 +261,8 @@ void addDataPoint(@@cDataPoint@@ data)
   \end{block}
 \end{frame}
 
-\begin{frame}[fragile]
+\subsection{Magic Numbers}
+\begin{frame}[fragile]{Magic Numbers}
   \begin{block}{Magic Numbers}
     Zahlen-Literale außer -1, 0, 1, 2 sollten in Variabeln oder Konstanten verpackt sein, damit man deren Bedeutung gleich erkennt.
     Das bietet sich auch für Ein-/Ausgabe Strings an. \linebreak
@@ -283,7 +284,8 @@ for (int i = 0; i < 52; i++) {
   \end{block}
 \end{frame}
 
-\begin{frame}[fragile]
+\subsection{Datenkapselung}
+\begin{frame}[fragile]{Datenkapselung}
   \begin{block}{Datenkapselung}
     Attribute \textbf{private}, getter \& setter. Das gilt auch für Listen und Arrays! 
     Keine Implementierungsdetails verraten durch das herausgeben von ganzen Listen/Arrays. \linebreak
@@ -303,7 +305,8 @@ public int speed; // km/h
   \end{block}
 \end{frame}
 
-\begin{frame}[fragile]
+\subsection{Objektorientierung}
+\begin{frame}[fragile]{Objektorientierung}
   \begin{block}{Objektorientierung}
     Gegen Interfaces statt konkreter Implementierung programmieren. \linebreak
     \pause
@@ -319,6 +322,7 @@ public int speed; // km/h
   \end{block}
 \end{frame}
 
+\subsection{Seperation of Concerns, Static/Konstanten und Schachtelung}
 \begin{frame}
   \begin{block}{Separation Of Concerns}
     \begin{itemize}
@@ -370,7 +374,8 @@ if (outerCheck) {
   \end{block}
 \end{frame}
 
-\begin{frame}
+\subsection{Exceptions}
+\begin{frame}{Exceptions}
   \begin{block}{Exceptions}
     \begin{itemize}
       \pause
@@ -396,7 +401,8 @@ if (outerCheck) {
   \includegraphics[scale=0.28]{../images/when_which_exception.png}
 \end{frame}
 
-\begin{frame}
+\subsection{Erweiterbarkeit, Generics und Programmierstil}
+\begin{frame}{Erweiterbarkeit/Generics und Stil}
   \begin{block}{Erweiterbarkeit \& Generics}
     \begin{itemize}
       \pause
@@ -420,6 +426,7 @@ if (outerCheck) {
   \end{block}
 \end{frame}
 
+\subsection{Testen!}
 \begin{frame}{\textbf{Und nicht vergessen!}}
   \pause
   \begin{center}\HUMONGOUS TESTEN!!! \end{center}
