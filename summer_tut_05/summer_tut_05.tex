@@ -322,17 +322,23 @@ public int speed; // km/h
 \begin{frame}
   \begin{block}{Separation Of Concens}
     \begin{itemize}
+      \pause
       \item Pro Klasse nur passende Verantwortlichkeit / stark zusammenhängende Aktionen
+      \pause
       \item z.B. ein Spielfeld kennt nur die eigene String-Rpräsentation (toString() !), hat aber keine Methoden zur Ausgabe.
     \end{itemize}
   \end{block}
+  \pause
   \begin{block}{Static/Konstanten}
     \begin{itemize}
+      \pause
       \item Konstanten sollten 
-      \color{keywordcolor}public\color{FGround}, \color{keywordcolor}static\color{FGround} und \color{keywordcolor}final\color{FGround} sein.
-      \item Statische Methoden sind meistens allgemein brauchbare Methoden wie Math.random(), Stickwort Utility-Klasse
+      \color{keywordcolor}public\color{FGround}, \color{keywordcolor}static \color{FGround} und \color{keywordcolor}final \color{FGround} sein.
+      \pause
+      \item Statische Methoden sind meistens allgemein brauchbare Methoden wie Math.random(), Stichwort Utility-Klasse
     \end{itemize}
   \end{block}
+  \pause
   \begin{block}{Schachtelung}
     Methoden nicht zu tief schachteln! Schauen was man in Hilfsmethoden schreiben kann.
   \end{block}
@@ -341,6 +347,7 @@ public int speed; // km/h
 \begin{frame}[fragile]
   \begin{block}{If-Abfragen}
     \color{keywordcolor}if\color{FGround}-Abfragen lassen sich manchmal reduzieren, indem man sie "invertiert" \linebreak
+    \pause
     \color{nicegreen}Do.\color{FGround}
     \begin{lstlisting}[numbers=none]
 if (!outerCheck) { 
@@ -351,6 +358,7 @@ if (!innerCheck) {
 } 
 ...
     \end{lstlisting}
+    \pause
     \color{alertcolor}Don't.\color{FGround}
     \begin{lstlisting}[numbers=none]
 if (outerCheck) { 
@@ -365,24 +373,57 @@ if (outerCheck) {
 \begin{frame}
   \begin{block}{Exceptions}
     \begin{itemize}
+      \pause
       \item Sollten nicht den Kontrollfluss steuern (Ausnahme: z.B. \color{classcolor}NumberFormatException\color{FGround})
-      \item Generell: Keine \color{classcolor}RuntimeException\color{FGround}-Untertypen behandeln -> Sondern Fehler finden.
-      \item Exceptions bitte nach ihrem JavaDoc verwenden. Wenn keine passt -> eigene Exception schreiben und sinnvoll erben lassen. \linebreak
+      \pause
+      \item Generell: Keine \color{classcolor}RuntimeException\color{FGround}-Untertypen behandeln, sondern Fehler finden.
+      \pause
+      \item Exceptions bitte nach ihrem JavaDoc verwenden. Wenn keine passt eigene Exception schreiben und sinnvoll erben lassen. \linebreak
       Beliebte Kanidaten:
       \begin{itemize}
+        \pause
         \item \href{https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/IllegalArgumentException.html}{IllegalArgumentException}
+        \pause
         \item \href{https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/IllegalStateException.html}{IllegalStateException}
+        \pause
         \item \href{https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/ArithmeticException.html}{ArithmeticException}
       \end{itemize}
     \end{itemize}
   \end{block}
 \end{frame}
 
-\begin{frame}
+\begin{frame}{Wann Fangen, wann nicht?}
   \includegraphics[scale=0.28]{../images/when_which_exception.png}
 \end{frame}
-% TODO: add tipps for finals
 
+\begin{frame}
+  \begin{block}{Erweiterbarkeit \& Generics}
+    \begin{itemize}
+      \pause
+      \item Bitte es nicht mit Erweiterbarkeit und Generics übertreiben!
+      \pause
+      \item Wenn ihr eine nicht-generische Lösung habt die aber sinnvoll objektorientiert ist, sollte das vollkommend in Ordnung sein.
+    \end{itemize}
+  \end{block}
+  \pause
+  \begin{block}{Programmierstil}
+    \begin{itemize}
+      \pause
+      \item Lange \color{keywordcolor}if\color{FGround}-\color{keywordcolor}else\color{FGround}- oder \color{keywordcolor}switch\color{FGround}-statements
+      sind tendenziell ein schlechtes Zeichen.
+      \pause
+      \item \color{keywordcolor}instanceOf \color{FGround} oder getClass() werden in Programmieren eigentlich nur in \textbf{equals(Object o)}, ... verwendet.
+      Stichwort \textbf{Polymorphismus}
+      \pause
+      \item Nicht zu viele \color{keywordcolor}return\color{FGround}-statements. Stichwort Komplexität
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}{\textbf{Und nicht vergessen!}}
+  \pause
+  \begin{center}\HUMONGOUS TESTEN!!! \end{center}
+\end{frame}
 
 
 \begin{frame}
