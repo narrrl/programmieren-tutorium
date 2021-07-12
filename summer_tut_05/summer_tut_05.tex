@@ -318,6 +318,69 @@ public int speed; // km/h
     \end{lstlisting}
   \end{block}
 \end{frame}
+
+\begin{frame}
+  \begin{block}{Separation Of Concens}
+    \begin{itemize}
+      \item Pro Klasse nur passende Verantwortlichkeit / stark zusammenhängende Aktionen
+      \item z.B. ein Spielfeld kennt nur die eigene String-Rpräsentation (toString() !), hat aber keine Methoden zur Ausgabe.
+    \end{itemize}
+  \end{block}
+  \begin{block}{Static/Konstanten}
+    \begin{itemize}
+      \item Konstanten sollten 
+      \color{keywordcolor}public\color{FGround}, \color{keywordcolor}static\color{FGround} und \color{keywordcolor}final\color{FGround} sein.
+      \item Statische Methoden sind meistens allgemein brauchbare Methoden wie Math.random(), Stickwort Utility-Klasse
+    \end{itemize}
+  \end{block}
+  \begin{block}{Schachtelung}
+    Methoden nicht zu tief schachteln! Schauen was man in Hilfsmethoden schreiben kann.
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+  \begin{block}{If-Abfragen}
+    \color{keywordcolor}if\color{FGround}-Abfragen lassen sich manchmal reduzieren, indem man sie "invertiert" \linebreak
+    \color{nicegreen}Do.\color{FGround}
+    \begin{lstlisting}[numbers=none]
+if (!outerCheck) { 
+    return; 
+} 
+if (!innerCheck) { 
+    return; 
+} 
+...
+    \end{lstlisting}
+    \color{alertcolor}Don't.\color{FGround}
+    \begin{lstlisting}[numbers=none]
+if (outerCheck) { 
+    if (innerCheck) { 
+        ... 
+    } 
+}
+    \end{lstlisting}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \begin{block}{Exceptions}
+    \begin{itemize}
+      \item Sollten nicht den Kontrollfluss steuern (Ausnahme: z.B. \color{classcolor}NumberFormatException\color{FGround})
+      \item Generell: Keine \color{classcolor}RuntimeException\color{FGround}-Untertypen behandeln -> Sondern Fehler finden.
+      \item Exceptions bitte nach ihrem JavaDoc verwenden. Wenn keine passt -> eigene Exception schreiben und sinnvoll erben lassen. \linebreak
+      Beliebte Kanidaten:
+      \begin{itemize}
+        \item \href{https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/IllegalArgumentException.html}{IllegalArgumentException}
+        \item \href{https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/IllegalStateException.html}{IllegalStateException}
+        \item \href{https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/ArithmeticException.html}{ArithmeticException}
+      \end{itemize}
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \includegraphics[scale=0.28]{../images/when_which_exception.png}
+\end{frame}
 % TODO: add tipps for finals
 
 
