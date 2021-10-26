@@ -5,27 +5,10 @@ if hash apt 2>/dev/null; then
     printf "Found apt manager\n"
     sleep 3s
     sudo apt-get install texlive-full texlive-xetex
-    fonts_dir="${HOME}/.local/share/fonts"
-    if [ ! -d "${fonts_dir}" ]; then
-        echo "mkdir -p $fonts_dir"
-        mkdir -p "${fonts_dir}"
-    else
-        echo "Found fonts dir $fonts_dir"
-    fi
-
-    for type in Bold Light Medium Regular Retina SemiBold; do
-        file_path="${HOME}/.local/share/fonts/FiraCode-${type}.ttf"
-        file_url="https://github.com/tonsky/FiraCode/blob/master/distr/ttf/FiraCode-${type}.ttf?raw=true"
-        if [ ! -e "${file_path}" ]; then
-            echo "wget -O $file_path $file_url"
-            wget -O "${file_path}" "${file_url}"
-        else
-    	echo "Found existing file $file_path"
-        fi;
-    done
-
-    echo "fc-cache -f"
-    fc-cache -f
+    printf "Installing FiraCode NerdFont\n"
+    git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git /tmp/nerd-fonts
+    cd /tmp/nerd-fonts
+    ./install.sh FiraCode FiraMono
 elif hash paru 2>/dev/null; then
     printf "Found paru aur helper\n"
     sleep 3s
