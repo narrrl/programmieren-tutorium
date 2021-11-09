@@ -6,7 +6,8 @@ if hash apt 2>/dev/null; then
     sleep 3s
     sudo apt-get install texlive-full texlive-xetex
     printf "Installing FiraCode NerdFont\n"
-    git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git /tmp/nerd-fonts
+
+    git clone --depth=1 https://github.com/ryanoasis/nerd-fonts /tmp/nerd-fonts
     cd /tmp/nerd-fonts
     ./install.sh FiraCode FiraMono
 elif hash paru 2>/dev/null; then
